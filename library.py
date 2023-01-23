@@ -26,10 +26,12 @@ class Player:
             else:
                 if card.lower() != 'a':
                     handSum+=10
-
-        for s in range(soft,-1,-1):
-            high = s*11
-            low = soft-s
-            print(high,low)
-        print(handSum)
+        if handSum + soft >= 21:
+            return handSum + soft
+        else:
+            for s in range(soft,0,-1):
+                high = s*11
+                low = soft-s
+                print(high,low)
+            print(handSum)
         return self.hand

@@ -41,13 +41,14 @@ if __name__ == '__main__':
     deck = build_deck(numdecks=7)
     table = build_table(numPlayers=7)
     player_1 = library.Player(name=0)
-    player_1.deal_card('c_J')
-    player_1.deal_card('c_3')
-    player_1.deal_card('c_A')
-    player_1.deal_card('c_A')
-    player_1.deal_card('c_Q')
-    player_1.deal_card('c_5')
-    player_1.deal_card('c_A')
-    player_1.deal_card('c_K')
     print(player_1.name)
+    #print(deck[:5])
+    for i in range(5):
+        card = deck.pop(0)
+        player_1.deal_card(card)
     hand = player_1.get_hand()
+    print(hand)
+
+
+
+
