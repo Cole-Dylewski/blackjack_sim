@@ -1,30 +1,9 @@
 import random
 
-
+import library
 # quantum black jack
 # gets the results for all possible decision trees of each hand and records the result
 
-class Player:
-
-
-    def __init__(self, name):
-        self.name = 'Player_' + str(name+1)
-        self.status = True
-        self.hand = []
-
-    def __str__(self):
-        print(self.hand)
-
-    def deal_card(self, card):
-        #print(card)
-        self.hand.append(card)
-        #print(self.hand)
-    def new_hand(self):
-        self.hand = []
-
-    def get_hand(self):
-        #print(self.hand)
-        return self.hand
 
 
 def build_deck(numdecks=1):
@@ -56,15 +35,19 @@ def deal_cards(deck, table):
     for player, hand in table.items():
         print(player, hand)
 
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
 
-deck = build_deck(numdecks=7)
-table = build_table(numPlayers=7)
-player_1 = Player(name=0)
-player_1.deal_card('c_j')
-player_1.deal_card('c_k')
-
-hand = player_1.get_hand()
-print(hand)
-player_1.new_hand()
-hand = player_1.get_hand()
-print(hand)
+    deck = build_deck(numdecks=7)
+    table = build_table(numPlayers=7)
+    player_1 = library.Player(name=0)
+    player_1.deal_card('c_J')
+    player_1.deal_card('c_3')
+    player_1.deal_card('c_A')
+    player_1.deal_card('c_A')
+    player_1.deal_card('c_Q')
+    player_1.deal_card('c_5')
+    player_1.deal_card('c_A')
+    player_1.deal_card('c_K')
+    print(player_1.name)
+    hand = player_1.get_hand()
