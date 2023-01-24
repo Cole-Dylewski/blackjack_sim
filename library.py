@@ -31,7 +31,7 @@ class Player:
             else:
                 if card.lower() != 'a':
                     handSum+=10
-        if handSum + soft > 21:
+        if handSum + soft >= 21:
             self.status = False
             return handSum + soft ,self.hand
         else:
