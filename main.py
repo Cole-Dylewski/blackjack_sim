@@ -60,6 +60,8 @@ if __name__ == '__main__':
     dfRecord = pd.DataFrame()
     table = build_table(numPlayers=1)
 
+
+
     #print(player_1.name)
     #deck = ['D_5', 'D_4', 'H_A', 'C_A','S_A','H_A']
     #print(deck[:5])
@@ -80,7 +82,9 @@ if __name__ == '__main__':
         #table['DEALER'].deal_card('S_K')
 
         for k, v in table.items():
-            print(k, v.name, v.get_hand(), v.status)
+            if k != 'DEALER':
+                print(k, v.name, v.get_hand(), v.status)
+        print("DEALER FACECARD",table['DEALER'].get_facecard())
 
         record['Dealer Face Card'] = table['DEALER'].get_facecard()
         #if dealer has blackjack, end deal
@@ -100,8 +104,23 @@ if __name__ == '__main__':
                         v.deal_card(deck.pop(0))
                     print(v.get_hand())
                 print(k, v.name, v.get_hand(), v.status)
+        while table['DEALER'].get_hand()[0] <17:
+            table['DEALER'].deal_card(deck.pop(0))
+
+        print(table['DEALER'].get_hand())
+        record['Dealer Hand'] = table['DEALER'].get_hand()
+        playerHand = table['0'].get_hand()
 
         print(record)
+        print(playerHand)
+        #print(playerHand[1])
+        #print(get_subhand(playerHand[1]))
+        runningHand=[]
+        for card in playerHand[1]:
+            runningHand.append(card)
+            if len(runningHand)>=2:
+                print(get_subhand(runningHand))
+
     #print('final hand',player_1.get_hand())
 
 

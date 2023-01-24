@@ -6,6 +6,7 @@ class Player:
         self.name = 'Player_' + str(name+1)
         self.status = True
         self.hand = []
+
     def print_hand(self):
         print(self.hand)
     def deal_card(self, card):
